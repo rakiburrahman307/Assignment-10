@@ -10,6 +10,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import ErrorPage404 from './components/pages/ErrorPage404';
+import Login from './components/pages/Login';
 
 
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path:'/contact',
         element:<Contact></Contact>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
       }
     ],
   },
