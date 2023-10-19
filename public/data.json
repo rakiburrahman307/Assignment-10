@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "brandName": "Rolls-Royce",
+        "img": "https://i.ibb.co/HXmFSt6/1920x1200-Rolls-Royce-200-EX-LOGO-desktop-PC-and-Mac-wallpaper.jpg"
+    },
+    {
+        "id": 2,
+        "brandName": "Audi",
+        "img": "https://i.ibb.co/sPJCNdP/audi-Wallpaper.jpg"
+    },
+    {
+        "id": 3,
+        "brandName": "Bugatti",
+        "img": "https://i.ibb.co/dJHZYtt/HD-Bugatti-Wallpapers-For-Free-Download.jpg"
+    },
+    {
+        "id": 4,
+        "brandName": "Toyota",
+        "img": "https://i.ibb.co/z68ZFkZ/toyota-supra-hd-wallpapers-toyota-supra-hd-wallpapers.jpg"
+    },
+    {
+        "id": 5,
+        "brandName": "BMW",
+        "img": "https://i.ibb.co/Jmq8Rrd/BMW-logo-car-dark-wallpaper-1920x1080-439468-Wallpaper-UP.jpg"
+    },
+    {
+        "id": 6,
+        "brandName": "Mercedes-Benz",
+        "img": "https://i.ibb.co/jzmscBV/Mercedes-Benz-Logo-Wallpaper-Hd-09.jpg"
+    }
+]

@@ -1,14 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoCarSport } from "react-icons/io5";
+import { AuthContext } from "../AuthProvidar/AuthProvider";
+import { useContext } from "react";
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
     const navLinks = <>
 
 
         <li><NavLink to='/' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Home</NavLink></li>
         <li><NavLink to='/about' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>About</NavLink></li>
         <li><NavLink to='/contact' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Contact</NavLink></li>
-        {/* <li><NavLink>Item 1</NavLink></li> */}
+        {user ? (
+      <>
+        <li><NavLink to='/add_product' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Add Product</NavLink></li>
+        <li><NavLink to='/my_cart' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>My Cart</NavLink></li>
+      </>
+    ) : null}
 
     </>
 
@@ -31,9 +39,27 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-            <Link to='/login'><button className="bg-gradient-to-r from-indigo-800 via-gray-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
-        Login
-      </button></Link>
+            {user ? (
+          <div className='flex justify-center items-center'>
+            <h2 className="text-xl text-block mr-2 font-semibold hidden md:flex lg:flex">{user.displayName}</h2>
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2">
+              <div className="w-10 rounded-full">
+                <img
+                  className="mx-auto rounded-full"
+                  src={user.photoURL ? user.photoURL : "https://i.ibb.co/Qvvqdt9/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"}
+                  alt="User Avatar"
+                />
+              </div>
+            </label>
+            <button onClick={logOut} className="bg-gradient-to-r from-red-700 via-red-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
+              <Link to='/login'>Log Out</Link>
+            </button>
+          </div>
+        ) : (
+          <button className="bg-gradient-to-r from-indigo-800 via-gray-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
+            <Link to='/login'>Log In</Link>
+          </button>
+        )}
       </div>
         </div>
     );
