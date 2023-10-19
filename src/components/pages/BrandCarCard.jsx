@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 
 const BrandCarCard = ({ car }) => {
-    const {_id, name, brand, price, imageUrl, description, rating } = car;
+    const { _id, name, brand, price, imageUrl, description, rating } = car;
 
-    
+
     const renderStars = () => {
         const maxRating = 5;
         const roundedRating = Math.round(rating);
@@ -38,9 +38,9 @@ const BrandCarCard = ({ car }) => {
                     <Link to={`/details/${_id}`}><button className="btn btn-outline btn-info">
                         Details
                     </button></Link>
-                    <button className="btn btn-outline btn-warning">
+                    <Link to={`/update/${_id}`}> <button className="btn btn-outline btn-warning">
                         Update
-                    </button>
+                    </button></Link>
                 </div>
             </div>
         </div>

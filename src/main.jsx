@@ -18,6 +18,7 @@ import AddProduct from './components/pages/AddProduct';
 import MyCart from './components/pages/MyCart';
 import BrandCars from './components/pages/BrandCars';
 import Details from './components/pages/Details';
+import Update from './components/pages/Update';
 
 
 
@@ -65,6 +66,11 @@ const router = createBrowserRouter([
       {
         path:'/details/:id',
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader: ({params})=> fetch(`http://localhost:5000/allProducts/${params.id}`)
+      },
+      {
+        path:'/update/:id',
+        element: <PrivateRoutes><Update></Update></PrivateRoutes>,
         loader: ({params})=> fetch(`http://localhost:5000/allProducts/${params.id}`)
       }
     ],
