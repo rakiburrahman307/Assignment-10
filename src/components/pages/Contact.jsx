@@ -34,7 +34,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="container mx-auto mt-8">
+        <div className="container mx-auto mt-8" data-aos="fade-right">
             <h2 className="text-4xl font-bold mb-8 text-center text-blue-700">Contact Us</h2>
 
             <div className="flex flex-col md:flex-row items-center">
@@ -44,7 +44,7 @@ const Contact = () => {
                     </p>
                 </div>
 
-                <form className="md:w-1/2" onSubmit={handleSubmit}>
+                <form className="md:w-1/2" onSubmit={handleSubmit} data-aos="fade-left">
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
                             Your Name

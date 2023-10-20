@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 const Details = () => {
     const carData = useLoaderData();
 
-    const {name, brand, price, imageUrl, description, rating } = carData;
-    const addCart = {name, brand, price, imageUrl, description, rating };
+    const { name, brand, price, imageUrl, description, rating } = carData;
+    const addCart = { name, brand, price, imageUrl, description, rating };
 
 
     const handleAddToCart = () => {
@@ -19,18 +19,18 @@ const Details = () => {
             },
             body: JSON.stringify(addCart)
         })
-      .then(res => res.json())
-      .then(data => {
-        if(data.acknowledged){
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Product Added Successfully',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        }
-      })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Product Added Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
 

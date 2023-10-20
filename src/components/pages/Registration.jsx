@@ -43,34 +43,34 @@ const Registration = () => {
             })
         } else {
             createUser(email, password, name)
-  .then(result => {
-    // update profile name:
-    updateProfile(result.user, {
-      displayName: name,
-    })
-      .then(() => {
-        Swal.fire({
-          icon: 'success',
-          text: 'Registration Success',
-        });
-        navigate("/");
-        
-      })
-      .catch((updateProfileError) => {
-        console.error("Update profile error:", updateProfileError);
-        Swal.fire({
-          icon: 'error',
-          text: 'Registration failed',
-        });
-      });
-  })
-  .catch((createUserError) => {
-    console.error("Create user error:", createUserError);
-    Swal.fire({
-      icon: 'error',
-      text: 'Registration failed',
-    });
-  });
+                .then(result => {
+                    // update profile name:
+                    updateProfile(result.user, {
+                        displayName: name,
+                    })
+                        .then(() => {
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'Registration Success',
+                            });
+                            navigate("/");
+
+                        })
+                        .catch((updateProfileError) => {
+                            console.error("Update profile error:", updateProfileError);
+                            Swal.fire({
+                                icon: 'error',
+                                text: 'Registration failed',
+                            });
+                        });
+                })
+                .catch((createUserError) => {
+                    console.error("Create user error:", createUserError);
+                    Swal.fire({
+                        icon: 'error',
+                        text: 'Registration failed',
+                    });
+                });
 
 
 

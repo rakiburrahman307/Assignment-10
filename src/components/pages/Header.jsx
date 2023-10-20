@@ -1,13 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoCarSport } from "react-icons/io5";
 import { AuthContext } from "../AuthProvidar/AuthProvider";
-import { useContext} from "react";
+import { useContext } from "react";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-  
 
-   
+
+
     const navLinks = <>
 
 

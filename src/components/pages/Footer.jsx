@@ -3,8 +3,8 @@ import { IoCarSport } from "react-icons/io5";
 
 
 const Footer = () => {
-    return (
-      <footer className="bg-blue-900 text-white py-16">
+  return (
+    <footer className="bg-blue-900 text-white py-16">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">Keep in Touch</h2>
         <IoCarSport className="text-4xl mx-auto"></IoCarSport>
@@ -24,15 +24,15 @@ const Footer = () => {
 
         <p className="mt-4">Follow us on social media:</p>
         <div className="flex items-center justify-center mt-2 space-x-4 mb-6">
-            <FaFacebook></FaFacebook>
-            <FaTwitch></FaTwitch>
-            <FaInstagram></FaInstagram>
-            <FaTwitter></FaTwitter>
+          <FaFacebook></FaFacebook>
+          <FaTwitch></FaTwitch>
+          <FaInstagram></FaInstagram>
+          <FaTwitter></FaTwitter>
         </div>
         <p>Copyright © 2023 - All right reserved</p>
       </div>
     </footer>
-    );
+  );
 };
 
 export default Footer;

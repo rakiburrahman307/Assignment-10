@@ -41,12 +41,12 @@ const Feedback = () => {
     }
     return (
         <div>
-            <h2 className="text-black text-center font-bold text-4xl my-10">
+            <h2 className="text-black text-center font-bold text-4xl my-10" data-aos="fade-left">
                 User <span className="text-green-500">Feedbacks</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 mb-12">
                 {feedback.map((feed) => (
-                    <div key={feed._id} className="card card-compact w-auto bg-base-100 shadow-xl">
+                    <div data-aos="fade-right" key={feed._id} className="card card-compact w-auto bg-base-100 shadow-xl">
                         <div className="card-body">
                             <h2 className="card-title font-bold text-lg">{feed.name}</h2>
                             <h3 className="text-black text-sm font-semibold">{feed.email}</h3>

@@ -5,48 +5,48 @@ import Swal from "sweetalert2";
 const Update = () => {
     const [selectedRating, setRating] = useState(0);
     const carData = useLoaderData();
-    const {_id, name, brand, price, imageUrl, description} = carData;
-    const handleAddProduct = e =>{
-       e.preventDefault();
-       const form = e.target;
-       const name = form.name.value; 
-       const brand = form.brand.value; 
-       const price = form.price.value; 
-       const imageUrl = form.imageUrl.value; 
-       const rating = selectedRating;
-       const description = form.description.value; 
-       const productDetails ={name, brand, price, imageUrl, description,rating}; 
+    const { _id, name, brand, price, imageUrl, description } = carData;
+    const handleAddProduct = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const brand = form.brand.value;
+        const price = form.price.value;
+        const imageUrl = form.imageUrl.value;
+        const rating = selectedRating;
+        const description = form.description.value;
+        const productDetails = { name, brand, price, imageUrl, description, rating };
 
-       fetch(`http://localhost:5000/allProducts/${_id}`,{
-         method:'PUT',
-         headers:{
-           'content-Type':'application/json'
-         },
-         body:JSON.stringify(productDetails)
-       })
-       .then(res => res.json())
-       .then(data => {
-        if(data.modifiedCount > 0){
-            Swal.fire({
-                position: 'top-end',
-                icon:'success',
-                title: 'Product updated successfully',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        }
-        
-       })
+        fetch(`http://localhost:5000/allProducts/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body: JSON.stringify(productDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Product updated successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+
+            })
 
     }
-    const handleRatingChange = e =>{
+    const handleRatingChange = e => {
         e.preventDefault();
         const selectedRating = e.target.value;
         setRating(selectedRating);
     }
     return (
         <div>
-             <form onSubmit={handleAddProduct}>
+            <form onSubmit={handleAddProduct}>
                 <h2 className="text-2xl text-black font-bold text-center my-6">Update Product <span className="text-green-400">Information</span></h2>
 
                 <div className="form-control w-full max-w-xs mx-auto mb-4">
@@ -94,7 +94,7 @@ const Update = () => {
                     </div>
                 </div>
                 <div className="form-control w-full max-w-xs mx-auto mb-8">
-                    <input type="submit" value='Update Product' className="btn btn-info text-white"/>
+                    <input type="submit" value='Update Product' className="btn btn-info text-white" />
                 </div>
 
             </form>

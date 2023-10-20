@@ -6,7 +6,7 @@ import { IoBagRemove } from "react-icons/io5";
 const MyCart = () => {
     const allCartData = useLoaderData();
     const [cartData, setCartData] = useState(allCartData);
-    const handelRemove = id =>{
+    const handelRemove = id => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -15,38 +15,38 @@ const MyCart = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/myCart/${id}`, {
+                fetch(`http://localhost:5000/myCart/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
                 })
-              .then(res => res.json())
-             .then(data => {
-                if(data.deletedCount > 0){
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                      'success'
-                    )
-                    const remainingProduct = cartData.filter(cartData => cartData._id !== id);
-                    setCartData(remainingProduct);
-                }
-                
-             })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            const remainingProduct = cartData.filter(cartData => cartData._id !== id);
+                            setCartData(remainingProduct);
+                        }
+
+                    })
             }
-          })
+        })
     }
 
     return (
         <div>
-            <h2 className="text-2xl text-black font-bold text-center my-6">My<span className="text-green-400">Cart</span></h2>
+            <h2 className="text-2xl text-black font-bold text-center my-6" data-aos="fade-right">My<span className="text-green-400">Cart</span></h2>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 mb-12">
                 {cartData.map((cart) => (
-                    <div key={cart._id} className="card w-auto bg-base-100 shadow-xl">
+                    <div key={cart._id} className="card w-auto bg-base-100 shadow-xl" data-aos="fade-left">
                         <figure className="px-10 pt-10">
                             <img src={cart.imageUrl} alt={cart.name} className="rounded-xl" />
                         </figure>

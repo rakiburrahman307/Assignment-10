@@ -76,8 +76,8 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/allProducts/${params.id}`)
       },
       {
-        path:'/feedback',
-        element:<PrivateRoutes><Feedback></Feedback></PrivateRoutes>,
+        path: '/feedback',
+        element: <PrivateRoutes><Feedback></Feedback></PrivateRoutes>,
         loader: () => fetch('http://localhost:5000/feedback')
       }
 

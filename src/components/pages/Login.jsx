@@ -27,22 +27,23 @@ const Login = () => {
       })
       .catch(() => {
         Swal.fire({
-        icon: 'error',
-        text: 'Failed to sign in',
-      })});
+          icon: 'error',
+          text: 'Failed to sign in',
+        })
+      });
 
 
   };
   const handleSignInWithGoogle = () => {
     signInWithGoogle()
       .then(result => {
-        if(result){
+        if (result) {
           Swal.fire({
             icon: 'success',
             text: 'Successfully signed in',
           })
           navigate(location?.state ?? '/');
-        } 
+        }
       })
       .catch(() => {
         Swal.fire({
@@ -77,7 +78,7 @@ const Login = () => {
           </label>
         </form>
         <div className="mx-auto mb-2">
-        <span className="text-center font-bold">or</span>
+          <span className="text-center font-bold">or</span>
         </div>
         <div className="mb-6 mx-auto">
           <button onClick={handleSignInWithGoogle} className="btn  btn-outline btn-accent mx-auto w-48">Sign in With<FaGoogle className="text-xl"></FaGoogle></button>
