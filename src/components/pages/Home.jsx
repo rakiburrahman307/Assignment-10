@@ -1,6 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Marquee from "react-fast-marquee";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -84,6 +85,9 @@ const Home = () => {
 
       <div>
         <h2 className=' font-bold text-center text-3xl mb-6' data-aos="fade-left">Our <span className='text-green-400'>Brands</span></h2>
+        <Marquee className=' border-y-teal-300 border-t-2 border-b-2 mb-10 px-6'>
+          Ethereal Autos is a premier online platform designed for automotive enthusiasts and individuals interested in buying, selling, or exploring a wide range of vehicles
+        </Marquee>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 mx-2 md:mx-24 lg:mx-32 px-6 '>
           {
             brands.map(brands => <BrandCard key={brands.id} brands={brands}></BrandCard>)

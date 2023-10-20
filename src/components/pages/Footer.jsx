@@ -6,12 +6,12 @@ const Footer = () => {
   return (
     <footer className="bg-blue-900 text-white py-16">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Keep in Touch</h2>
-        <IoCarSport className="text-4xl mx-auto"></IoCarSport>
-        <h3 className="text-xl font-bold mb-6">Ethereal Autos</h3>
-        <p className="mb-6">Stay connected with Ethereal Autos for the latest updates and news.</p>
 
-        <div className="flex items-center justify-center space-x-4">
+        <IoCarSport className="text-4xl mx-auto" data-aos="fade-left"></IoCarSport>
+        <h3 className="text-2xl font-bold mb-6" data-aos="fade-right">Ethereal Autos</h3>
+        <p className="mb-6" data-aos="fade-left">Stay connected with Ethereal Autos for the latest updates and news.</p>
+
+        <div className="flex items-center justify-center space-x-4" data-aos="fade-right">
           <input
             type="email"
             placeholder="Enter your email"
@@ -22,14 +22,14 @@ const Footer = () => {
           </button>
         </div>
 
-        <p className="mt-4">Follow us on social media:</p>
-        <div className="flex items-center justify-center mt-2 space-x-4 mb-6">
+        <p className="mt-4" data-aos="fade-left">Follow us on social media:</p>
+        <div className="flex items-center justify-center mt-2 space-x-4 mb-6" data-aos="fade-right">
           <FaFacebook></FaFacebook>
           <FaTwitch></FaTwitch>
           <FaInstagram></FaInstagram>
           <FaTwitter></FaTwitter>
         </div>
-        <p>Copyright © 2023 - All right reserved</p>
+        <p data-aos="fade-left">Copyright © 2023 - All right reserved</p>
       </div>
     </footer>
   );
