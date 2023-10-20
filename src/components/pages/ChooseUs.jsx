@@ -22,7 +22,7 @@ const ChooseUs = () => {
                     At Ethereal Autos, we are committed to providing an exceptional automotive experience. Here are some reasons to choose us.
                 </p>
 
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     {reasons.map((reason, index) => (
                         <li key={index} className="mb-4 flex items-center" data-aos="fade-right">
                             <IoMdDoneAll className=" text-green-600 font-semibold mr-2"></IoMdDoneAll>
