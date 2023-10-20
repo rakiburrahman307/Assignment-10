@@ -19,7 +19,7 @@ const Registration = () => {
         const password = form.get('password');
         if (/^\w{1,5}$/.test(password)) {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'error',
                 title: 'Password must be 6 characters',
                 showConfirmButton: false,
@@ -27,7 +27,7 @@ const Registration = () => {
             })
         } else if (/^[^A-Z]*$/.test(password)) {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'error',
                 title: 'Password must one capital letter',
                 showConfirmButton: false,
@@ -35,7 +35,7 @@ const Registration = () => {
             })
         } else if (/^[^\W_]*$/.test(password)) {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'error',
                 title: 'Must have a special character',
                 showConfirmButton: false,

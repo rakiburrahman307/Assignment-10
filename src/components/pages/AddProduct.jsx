@@ -26,7 +26,7 @@ const AddProduct = () => {
             .then(data => {
                 if (data.acknowledged) {
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         width:'auto',
                         icon: 'success',
                         title: 'New product added successfully',

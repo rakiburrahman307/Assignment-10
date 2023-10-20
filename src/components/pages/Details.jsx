@@ -23,7 +23,7 @@ const Details = () => {
             .then(data => {
                 if (data.acknowledged) {
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
                         width:'auto',
                         title: 'Product Added Successfully',
