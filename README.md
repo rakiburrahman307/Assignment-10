@@ -20,15 +20,20 @@ Ethereal Autos is not just a car dealership. it's an experience curated for auto
 - My Cart Page
 - User Feedback Page
 - User authentication for personalized experience
+- User registration for personalized experience
 - Responsive design for various devices
 
 ## Technologies Used
 - React.js
 - Tailwind CSS
-- Firebase (for authentication and data storage)
+- Firebase (for authentication)
+- MongoDb (for data storage)
 - Aos Animation
 - Sweet alert2
 - Swiper Animation
+- React icons
+- Node.js
+
 
 ## Installation
 1. Clone the repository.
