@@ -12,7 +12,7 @@ const Details = () => {
 
 
     const handleAddToCart = () => {
-        fetch('http://localhost:5000/myCart', {
+        fetch('https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/myCart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

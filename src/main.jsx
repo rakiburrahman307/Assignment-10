@@ -57,28 +57,28 @@ const router = createBrowserRouter([
       {
         path: "/my_cart",
         element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
-        loader: () => fetch('http://localhost:5000/myCart')
+        loader: () => fetch('https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/myCart')
       },
       {
         path: '/brandCars/:brandName',
         element: <PrivateRoutes><BrandCars></BrandCars></PrivateRoutes>,
-        loader: () => fetch(`http://localhost:5000/allProducts`)
+        loader: () => fetch(`https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/allProducts`)
 
       },
       {
         path: '/details/:id',
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allProducts/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/allProducts/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allProducts/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/allProducts/${params.id}`)
       },
       {
         path: '/feedback',
         element: <PrivateRoutes><Feedback></Feedback></PrivateRoutes>,
-        loader: () => fetch('http://localhost:5000/feedback')
+        loader: () => fetch('https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/feedback')
       }
 
     ],
