@@ -31,47 +31,48 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: '/about',
-        element:<About/>
+        element: <About />
       },
       {
-        path:'/contact',
-        element:<Contact></Contact>
+        path: '/contact',
+        element: <Contact></Contact>
       },
       {
-        path:'/login',
-        element:<Login></Login>
+        path: '/login',
+        element: <Login></Login>
       },
       {
-        path:'/register',
-        element:<Registration></Registration>
+        path: '/register',
+        element: <Registration></Registration>
       },
       {
-        path:'/add_product',
+        path: '/add_product',
         element: <PrivateRoutes><AddProduct></AddProduct></PrivateRoutes>
       },
       {
-        path:"/my_cart",
-        element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>
+        path: "/my_cart",
+        element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
+        loader: () => fetch('http://localhost:5000/myCart')
       },
       {
-        path:'/brandCars/:brandName',
+        path: '/brandCars/:brandName',
         element: <PrivateRoutes><BrandCars></BrandCars></PrivateRoutes>,
-        loader: ()=> fetch(`http://localhost:5000/allProducts`)
-        
+        loader: () => fetch(`http://localhost:5000/allProducts`)
+
       },
       {
-        path:'/details/:id',
+        path: '/details/:id',
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader: ({params})=> fetch(`http://localhost:5000/allProducts/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/allProducts/${params.id}`)
       },
       {
-        path:'/update/:id',
+        path: '/update/:id',
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-        loader: ({params})=> fetch(`http://localhost:5000/allProducts/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/allProducts/${params.id}`)
       }
     ],
   },
@@ -79,6 +80,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <AuthProvider><RouterProvider router={router} /></AuthProvider>
+    <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )

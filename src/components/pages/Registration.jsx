@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../AuthProvidar/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Registration = () => {
     const { createUser } = useContext(AuthContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
 
     const handleRegistration = e => {
@@ -17,31 +18,60 @@ const Registration = () => {
         const email = form.get('email');
         const password = form.get('password');
         if (/^\w{1,5}$/.test(password)) {
-            console.log("Password must be 6 characters");
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Password must be 6 characters',
+                showConfirmButton: false,
+                timer: 1500
+            })
         } else if (/^[^A-Z]*$/.test(password)) {
-            console.log("Password must one capital letter")
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Password must one capital letter',
+                showConfirmButton: false,
+                timer: 1500
+            })
         } else if (/^[^\W_]*$/.test(password)) {
-            console.log('Must have a special character')
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Must have a special character',
+                showConfirmButton: false,
+                timer: 1500
+            })
         } else {
             createUser(email, password, name)
-                .then(result => {
-                    // update profile name :
-                    updateProfile(result.user, {
-                        displayName: name,
-                    })
-                        .then(() => {
-                            form.reset();
-                            console.log("Create user successfully")
-                            navigate("/")
+  .then(result => {
+    // update profile name:
+    updateProfile(result.user, {
+      displayName: name,
+    })
+      .then(() => {
+        Swal.fire({
+          icon: 'success',
+          text: 'Registration Success',
+        });
+        navigate("/");
+        
+      })
+      .catch((updateProfileError) => {
+        console.error("Update profile error:", updateProfileError);
+        Swal.fire({
+          icon: 'error',
+          text: 'Registration failed',
+        });
+      });
+  })
+  .catch((createUserError) => {
+    console.error("Create user error:", createUserError);
+    Swal.fire({
+      icon: 'error',
+      text: 'Registration failed',
+    });
+  });
 
-                        })
-                        .catch(err => {
-                            console.log(err.massage)
-                        })
-                })
-                .catch(err => {
-                    console.log(err.massage);
-                });
 
 
         }
@@ -72,7 +102,7 @@ const Registration = () => {
                         <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Register</button>
+                        <button className="btn btn-outline btn-neutral">Register</button>
                     </div>
                     <label className="label">
                         <Link to="/login" className="label-text-alt link link-hover">Already have an account? Login Now</Link>

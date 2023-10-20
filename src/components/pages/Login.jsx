@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa6";
 import { AuthContext } from "../AuthProvidar/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -18,21 +19,37 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
-        console.log('Sign in successful');
+        Swal.fire({
+          icon: 'success',
+          text: 'Successfully signed in',
+        })
         navigate(location?.state ? location.state : '/');
-        form.reset();
       })
-      .catch(() => console.log("Log in Failed!"));
+      .catch(() => {
+        Swal.fire({
+        icon: 'error',
+        text: 'Failed to sign in',
+      })});
 
 
   };
   const handleSignInWithGoogle = () => {
     signInWithGoogle()
-      .then(() => {
-        console.log('Sign in Successful with Google')
-        navigate(location?.state ?? '/');
+      .then(result => {
+        if(result){
+          Swal.fire({
+            icon: 'success',
+            text: 'Successfully signed in',
+          })
+          navigate(location?.state ?? '/');
+        } 
       })
-      .catch(() => console.log('Sign in Successful with Google'));
+      .catch(() => {
+        Swal.fire({
+          icon: 'error',
+          text: 'Failed to sign in',
+        })
+      });
   }
   return (
     <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/zfdjLb1/leon-seibert-1-Riy-Aw-NIiew-unsplash.jpg)' }}>
@@ -53,14 +70,17 @@ const Login = () => {
             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-outline btn-neutral">Login</button>
           </div>
           <label className="label">
             <Link to="/register" className="label-text-alt link link-hover">Do not have an account? Register Now</Link>
           </label>
         </form>
+        <div className="mx-auto mb-2">
+        <span className="text-center font-bold">or</span>
+        </div>
         <div className="mb-6 mx-auto">
-          <button onClick={handleSignInWithGoogle} className="btn  btn-outline btn-accent mx-auto w-48 rounded-full">Sign in With<FaGoogle className="text-xl"></FaGoogle></button>
+          <button onClick={handleSignInWithGoogle} className="btn  btn-outline btn-accent mx-auto w-48">Sign in With<FaGoogle className="text-xl"></FaGoogle></button>
         </div>
       </div>
     </div>
