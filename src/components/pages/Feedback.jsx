@@ -30,6 +30,7 @@ const Feedback = () => {
                                 'Deleted!',
                                 'Message has been deleted.',
                                 'success'
+                                
                             )
                             setFeedback(feedback.filter(item => item._id !== id));
                         }

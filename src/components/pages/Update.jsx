@@ -28,8 +28,9 @@ const Update = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
+                        width: 'auto',
                         title: 'Product updated successfully',
                         showConfirmButton: false,
                         timer: 1500

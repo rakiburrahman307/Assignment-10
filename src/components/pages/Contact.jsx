@@ -22,6 +22,7 @@ const Contact = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
+                        width:'auto',
                         title: 'Feedback Submitted Success',
                         showConfirmButton: false,
                         timer: 1500

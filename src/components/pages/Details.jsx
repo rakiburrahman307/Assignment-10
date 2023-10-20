@@ -25,6 +25,7 @@ const Details = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
+                        width:'auto',
                         title: 'Product Added Successfully',
                         showConfirmButton: false,
                         timer: 1500
