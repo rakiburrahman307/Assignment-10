@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
     const [selectedRating, setRating] = useState(0);
@@ -25,8 +26,16 @@ const Update = () => {
        })
        .then(res => res.json())
        .then(data => {
-        console.log(data)
-        form.reset();
+        if(data.modifiedCount > 0){
+            Swal.fire({
+                position: 'top-end',
+                icon:'success',
+                title: 'Product updated successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+        
        })
 
     }

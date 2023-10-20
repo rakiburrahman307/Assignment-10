@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
  const [selectedRating, setRating] = useState(0);
@@ -23,7 +24,16 @@ const AddProduct = () => {
        })
        .then(res => res.json())
        .then(data => {
-        console.log(data)
+        if (data.acknowledged) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'New product added successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              
+        }
         form.reset();
        })
 

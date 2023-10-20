@@ -1,6 +1,4 @@
 
-// import PropTypes from 'prop-types';
-
 import { useLoaderData, useParams } from "react-router-dom";
 import BrandCarCard from "./BrandCarCard";
 

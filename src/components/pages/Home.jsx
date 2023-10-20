@@ -4,12 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { useEffect, useState } from 'react';
 import BrandCard from './BrandCard';
+import ChooseUs from './ChooseUs';
+import Service from './Services';
 
 const Home = () => {
 
@@ -77,12 +78,17 @@ const Home = () => {
       </Swiper></div>
 
       <div>
-        <h2 className='text-black font-bold text-center text-5xl mb-6'>Our Brands</h2>
+        <h2 className=' font-bold text-center text-5xl mb-6'>Our <span className='text-green-400'>Brands</span></h2>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 mx-2 md:mx-24 lg:mx-32 px-6 '>
           {
             brands.map(brands => <BrandCard key={brands.id} brands={brands}></BrandCard>)
           }
         </div>
+      </div>
+
+      <div>
+      <ChooseUs></ChooseUs>
+      <Service></Service>
       </div>
     </div>
   );
