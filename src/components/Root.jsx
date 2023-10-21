@@ -7,7 +7,7 @@ import { useContext } from "react";
 const Root = () => {
     const { darkMode } = useContext(AuthContext);
     return (
-        <div className={`${darkMode ? 'bg-gray-300' : ''} ${darkMode ? 'text-gray-500' : 'text-black'} -z-30`}>
+        <div className={`${darkMode ? 'bg-gray-300' : ''} ${darkMode ? 'text-gray-500' : 'text-black'} -z-30 mx-auto`}>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
