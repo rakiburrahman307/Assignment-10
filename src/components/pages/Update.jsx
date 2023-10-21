@@ -18,7 +18,7 @@ const Update = () => {
         const description = form.description.value;
         const productDetails = { name, brand, price, imageUrl, description, rating };
 
-        fetch(`http://localhost:5000/allProducts/${_id}`, {
+        fetch(`https://assignment-10-server-gamma-green.vercel.app/allProducts/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-Type': 'application/json'
