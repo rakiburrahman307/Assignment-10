@@ -52,7 +52,7 @@ Ethereal Autos is not just a car dealership. it's an experience curated for auto
 
 ## License
 This project is licensed under the [Ethereal Autos](LICENSE).
-This project live link [https://6533d228ffd20e7382ea299c--cute-jalebi-0f81cc.netlify.app/](LInk).
+This project live link [https://6533dbc842df062c581574d2--cool-gecko-ec8121.netlify.app/](LInk).
 
 ## Contact
 For questions or feedback, contact:
