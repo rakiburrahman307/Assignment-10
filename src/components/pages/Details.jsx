@@ -1,18 +1,22 @@
 import { useLoaderData } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvidar/AuthProvider";
 
 
 
 const Details = () => {
     const carData = useLoaderData();
+    const { user } = useContext(AuthContext);
+    const userEmail = user.email;
 
     const { name, brand, price, imageUrl, description, rating } = carData;
-    const addCart = { name, brand, price, imageUrl, description, rating };
+    const addCart = { name, userEmail, brand, price, imageUrl, description, rating };
 
 
     const handleAddToCart = () => {
-        fetch('https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/myCart', {
+        fetch('http://localhost:5000/myCart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +29,7 @@ const Details = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        width:'auto',
+
                         title: 'Product Added Successfully',
                         showConfirmButton: false,
                         timer: 1500

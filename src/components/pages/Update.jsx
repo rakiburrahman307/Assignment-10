@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Update = () => {
+    
     const [selectedRating, setRating] = useState(0);
     const carData = useLoaderData();
     const { _id, name, brand, price, imageUrl, description } = carData;
@@ -17,7 +18,7 @@ const Update = () => {
         const description = form.description.value;
         const productDetails = { name, brand, price, imageUrl, description, rating };
 
-        fetch(`https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/allProducts/${_id}`, {
+        fetch(`http://localhost:5000/allProducts/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-Type': 'application/json'
@@ -30,7 +31,7 @@ const Update = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        width: 'auto',
+                        
                         title: 'Product updated successfully',
                         showConfirmButton: false,
                         timer: 1500

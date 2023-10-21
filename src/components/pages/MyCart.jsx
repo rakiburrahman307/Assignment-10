@@ -1,11 +1,20 @@
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { IoBagRemove } from "react-icons/io5";
+import { AuthContext } from "../AuthProvidar/AuthProvider";
 
 const MyCart = () => {
     const allCartData = useLoaderData();
     const [cartData, setCartData] = useState(allCartData);
+    const { user } = useContext(AuthContext);
+    const userEmail = user.email;
+
+    useEffect(() => {
+        const currentUser = allCartData.filter(cartData => cartData.userEmail === userEmail);
+        setCartData(currentUser);
+    }, [allCartData, userEmail]);
+
     const handelRemove = id => {
         Swal.fire({
             title: 'Are you sure?',
@@ -17,7 +26,7 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/myCart/${id}`, {
+                fetch(`http://localhost:5000/myCart/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -35,7 +44,6 @@ const MyCart = () => {
                             const remainingProduct = cartData.filter(cartData => cartData._id !== id);
                             setCartData(remainingProduct);
                         }
-
                     })
             }
         })

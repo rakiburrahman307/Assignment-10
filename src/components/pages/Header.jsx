@@ -11,14 +11,14 @@ const Header = () => {
     const navLinks = <>
 
 
-        <li><NavLink to='/' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Home</NavLink></li>
-        <li><NavLink to='/about' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>About</NavLink></li>
-        <li><NavLink to='/contact' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Contact</NavLink></li>
+        <li><NavLink to='/' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Home</NavLink></li>
+        <li><NavLink to='/about' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>About</NavLink></li>
+        <li><NavLink to='/contact' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Contact</NavLink></li>
         {user ? (
             <>
-                <li><NavLink to='/add_product' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Add Product</NavLink></li>
-                <li><NavLink to='/my_cart' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>My Cart</NavLink></li>
-                <li><NavLink to='/feedback' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out mr-3'>Feedback</NavLink></li>
+                <li><NavLink to='/add_product' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Add Product</NavLink></li>
+                <li><NavLink to='/my_cart' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>My Cart</NavLink></li>
+                <li><NavLink to='/feedback' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Feedback</NavLink></li>
             </>
         ) : null}
 
@@ -47,7 +47,7 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><IoCarSport className="text-3xl"></IoCarSport>Ethereal Autos</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><IoCarSport className="md:text-3xl"></IoCarSport>Ethereal Autos</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

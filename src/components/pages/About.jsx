@@ -1,5 +1,6 @@
 
 const About = () => {
+    
     return (
         <div className="container mx-auto mt-8">
             <h2 className="text-4xl font-bold mb-8 text-center text-blue-700" data-aos="fade-left">About <span className="text-green-600 font-bold">Ethereal Autos</span></h2>

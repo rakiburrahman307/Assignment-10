@@ -15,7 +15,7 @@ const AddProduct = () => {
         const productDetails = { name, brand, price, imageUrl, description, rating };
         console.log(productDetails);
 
-        fetch('https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/allProducts', {
+        fetch('http://localhost:5000/allProducts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const AddProduct = () => {
                 if (data.acknowledged) {
                     Swal.fire({
                         position: 'center',
-                        width:'auto',
+                        
                         icon: 'success',
                         title: 'New product added successfully',
                         showConfirmButton: false,

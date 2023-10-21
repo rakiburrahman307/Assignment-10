@@ -9,7 +9,7 @@ const Contact = () => {
         const message = form.message.value;
         const feedback = { name, email, message }
 
-        fetch('https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/feedback', {
+        fetch('http://localhost:5000/feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,7 +22,7 @@ const Contact = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        width:'auto',
+                        
                         title: 'Feedback Submitted Success',
                         showConfirmButton: false,
                         timer: 1500

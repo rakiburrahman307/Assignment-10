@@ -17,7 +17,7 @@ const Feedback = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://assignment-10-server-3ce1gju8r-rakiburrahman307.vercel.app/feedback/${id}`, {
+                fetch(`http://localhost:5000/feedback/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
