@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import './styles.css'
 
+
 const BrandCars = () => {
     const allProducts = useLoaderData();
     const { brandName } = useParams();
@@ -56,8 +57,8 @@ const BrandCars = () => {
                 </Swiper>
             </div>
             <div>
-                <h2 className="text-center text-3xl font-bold">All <span className="text-green-500">Cars</span></h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10 mx-2 px-6">
+                <h2 className="text-center text-3xl font-bold mb-10">All <span className="text-green-500">Cars</span></h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-2 px-6 mb-10">
                     {
                         filteredProducts.map(car => <BrandCarCard key={car._id} car={car}></BrandCarCard>)
                     }

@@ -4,28 +4,28 @@ import { AuthContext } from "../AuthProvidar/AuthProvider";
 import { useContext } from "react";
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
-
-
+    const { user, logOut, toggleDarkMode, darkMode } = useContext(AuthContext);
 
     const navLinks = <>
 
 
-        <li><NavLink to='/' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Home</NavLink></li>
-        <li><NavLink to='/about' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>About</NavLink></li>
-        <li><NavLink to='/contact' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Contact</NavLink></li>
+        <li><NavLink to='/' className={`focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out ${darkMode ? 'text-gray-400' : 'text-white'}`}>Home</NavLink></li>
+        <li><NavLink to='/about' className={`focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out ${darkMode ? 'text-gray-400' : 'text-white'}`}>About</NavLink></li>
+        <li><NavLink to='/contact' className={`focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out ${darkMode ? 'text-gray-400' : 'text-white'}`}>Contact</NavLink></li>
+
+
         {user ? (
             <>
-                <li><NavLink to='/add_product' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Add Product</NavLink></li>
-                <li><NavLink to='/my_cart' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>My Cart</NavLink></li>
-                <li><NavLink to='/feedback' className='focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out'>Feedback</NavLink></li>
+                <li><NavLink to='/add_product' className={`focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out ${darkMode ? 'text-gray-400' : 'text-white'}`}>Add Product</NavLink></li>
+                <li><NavLink to='/my_cart' className={`focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out ${darkMode ? 'text-gray-400' : 'text-white'}`}>My Cart</NavLink></li>
+                <li><NavLink to='/feedback' className={`focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out ${darkMode ? 'text-gray-400' : 'text-white'}`}>Feedback</NavLink></li>
             </>
         ) : null}
 
     </>
 
     return (
-        <div className="navbar bg-gradient-to-r from-black via-gray-600 to-indigo-800 text-white sticky top-0 shadow-lg z-10">
+        <div className={`navbar ${darkMode ? 'bg-black' : 'bg-gradient-to-r from-black via-gray-600 to-indigo-800'} sticky top-0 shadow-lg z-20`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,21 +33,27 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52">
                         {navLinks}
-
+                        <button
+                            onClick={toggleDarkMode}
+                            className="btn btn-ghost btn-circle ml-2"
+                        >
+                            {darkMode ? '☀️' : '🌙'}
+                        </button>
                         {
                             user ? (
-                                <button onClick={logOut} className="bg-gradient-to-r from-red-700 via-red-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
+                                <button onClick={logOut} className={`bg-gradient-to-r from-red-700 via-red-600 to-black ${darkMode ? 'text-gray-300' : 'text-white'} px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out hidden md:flex lg:flex`}>
                                     <Link to='/login'>Log Out</Link>
                                 </button>
                             ) : (
-                                <button className="bg-gradient-to-r from-indigo-800 via-gray-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
+                                <button className={`bg-gradient-to-r from-indigo-800 via-gray-600 to-black ${darkMode ? 'text-gray-300' : 'text-white'} px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out hidden md:flex lg:flex`}>
                                     <Link to='/login'>Log In</Link>
                                 </button>
+
                             )
                         }
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><IoCarSport className="md:text-3xl"></IoCarSport>Ethereal Autos</Link>
+                <Link to='/' className={`btn btn-ghost normal-case text-xl ${darkMode ? 'text-gray-400' : 'text-white'}`}><IoCarSport className="md:text-3xl"></IoCarSport>Ethereal Autos</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -57,7 +63,13 @@ const Header = () => {
             <div className="navbar-end">
                 {user ? (
                     <div className='flex justify-center items-center'>
-                        <h2 className="text-xl text-block mr-2 font-semibold hidden md:flex lg:flex">{user.displayName}</h2>
+                        <button
+                            onClick={toggleDarkMode}
+                            className="btn btn-ghost btn-circle ml-2"
+                        >
+                            {darkMode ? '☀️' : '🌙'}
+                        </button>
+                        <h2 className={`text-xl text-block mr-2 font-semibold hidden md:flex lg:flex ${darkMode ? 'text-gray-400' : 'text-white'}`}>{user.displayName}</h2>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2">
                             <div className="w-10 rounded-full">
                                 <img
@@ -68,15 +80,23 @@ const Header = () => {
 
                             </div>
                         </label>
-                        <button onClick={logOut} className="bg-gradient-to-r from-red-700 via-red-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out hidden md:flex lg:flex">
+                        <button onClick={logOut} className={`bg-gradient-to-r from-red-700 via-red-600 to-black ${darkMode ? 'text-gray-300' : 'text-white'} px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out hidden md:flex lg:flex`}>
                             <Link to='/login'>Log Out</Link>
                         </button>
 
                     </div>
                 ) : (
-                    <button className="bg-gradient-to-r from-indigo-800 via-gray-600 to-black text-white px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out hidden md:flex lg:flex">
-                        <Link to='/login'>Log In</Link>
-                    </button>
+                    <div className="flex justify-end items-center gap-2">
+                        <button
+                            onClick={toggleDarkMode}
+                            className="btn btn-ghost btn-circle ml-2"
+                        >
+                            {darkMode ? '☀️' : '🌙'}
+                        </button>
+                        <button className={`bg-gradient-to-r from-indigo-800 via-gray-600 to-black ${darkMode ? 'text-gray-300' : 'text-white'} px-4 py-2 rounded-lg hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out hidden md:flex lg:flex`}>
+                            <Link to='/login'>Log In</Link>
+                        </button>
+                    </div>
                 )}
             </div>
         </div>

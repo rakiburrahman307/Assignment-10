@@ -13,6 +13,7 @@ import Service from './Services';
 const Home = () => {
   const [brands, setBrands] = useState([]);
 
+
   useEffect(() => {
     fetch('/data.json')
       .then(res => res.json())
@@ -76,14 +77,15 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div className='mx-auto'>
+      <div className={`mx-auto`}>
         <h2 className='font-bold text-center text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8' data-aos="fade-left">Our <span className='text-green-400'>Brands</span></h2>
         <Marquee className='border-y-teal-300 border-t-2 border-b-2 mb-10 md:mb-12'>
           Ethereal Autos is a premier online platform designed for automotive enthusiasts and individuals interested in buying, selling, or exploring a wide range of vehicles
         </Marquee>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-10 mx-2 px-6'>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-10 mx-2 px-6`}>
           {brands.map(brand => <BrandCard key={brand.id} brands={brand}></BrandCard>)}
         </div>
+
       </div>
 
       <div>

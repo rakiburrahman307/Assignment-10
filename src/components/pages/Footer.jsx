@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { FaFacebook, FaInstagram, FaTwitch, FaTwitter } from "react-icons/fa6";
 import { IoCarSport } from "react-icons/io5";
+import { AuthContext } from "../AuthProvidar/AuthProvider";
 
 
 const Footer = () => {
+  const { darkMode } = useContext(AuthContext);
+
   return (
-    <footer className="bg-blue-900 text-white py-16">
+
+    <footer className={`${darkMode ? 'text-gray-400' : 'text-white'} py-16 ${darkMode ? 'bg-black' : 'bg-blue-900'}`}>
       <div className="container mx-auto text-center">
 
         <IoCarSport className="text-4xl mx-auto" data-aos="fade-left"></IoCarSport>

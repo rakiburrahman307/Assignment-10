@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvidar/AuthProvider";
+import { useContext } from "react";
 
 const Contact = () => {
+    const { darkMode } = useContext(AuthContext);
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -22,7 +25,7 @@ const Contact = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        
+
                         title: 'Feedback Submitted Success',
                         showConfirmButton: false,
                         timer: 1500
@@ -35,19 +38,19 @@ const Contact = () => {
     };
 
     return (
-        <div className="container mx-auto mt-8" data-aos="fade-right">
+        <div className={`${darkMode ? 'text-gray-900' : 'text-black'} container mx-auto mt-8`} data-aos="fade-right">
             <h2 className="text-4xl font-bold mb-8 text-center text-blue-700">Contact Us</h2>
 
             <div className="flex flex-col md:flex-row items-center">
                 <div className="md:w-1/2">
-                    <p className="text-lg text-gray-700 mb-4">
+                    <p className="text-lg  mb-4">
                         Have questions or feedback? Contact us using the form below, and well get back to you as soon as possible.
                     </p>
                 </div>
 
                 <form className="md:w-1/2" onSubmit={handleSubmit} data-aos="fade-left">
                     <div className="mb-4">
-                        <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+                        <label htmlFor="name" className="block  text-sm font-bold mb-2">
                             Your Name
                         </label>
                         <input
@@ -60,7 +63,7 @@ const Contact = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+                        <label htmlFor="email" className="block  text-sm font-bold mb-2">
                             Email Address
                         </label>
                         <input
@@ -73,7 +76,7 @@ const Contact = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">
+                        <label htmlFor="message" className="block  text-sm font-bold mb-2">
                             Your Message
                         </label>
                         <textarea

@@ -40,7 +40,7 @@ const Login = () => {
         if (result) {
           Swal.fire({
             icon: 'success',
-            
+
             text: 'Successfully signed in',
           })
           navigate(location?.state ?? '/');
@@ -49,7 +49,7 @@ const Login = () => {
       .catch(() => {
         Swal.fire({
           icon: 'error',
-          
+
           text: 'Failed to sign in',
         })
       });

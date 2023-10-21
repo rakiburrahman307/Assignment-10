@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Update = () => {
-    
+
     const [selectedRating, setRating] = useState(0);
     const carData = useLoaderData();
     const { _id, name, brand, price, imageUrl, description } = carData;
@@ -31,7 +31,7 @@ const Update = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        
+
                         title: 'Product updated successfully',
                         showConfirmButton: false,
                         timer: 1500

@@ -28,12 +28,12 @@ const BrandCarCard = ({ car }) => {
         <div>
 
             <div>
-                <div className="card card-compact w-auto bg-base-100 shadow-xl">
+                <div className={`card card-compact w-auto shadow-xl`}>
                     <figure><img className='h-48' src={imageUrl} alt={name} /></figure>
                     <div className="card-body">
                         <h2 className="card-title font-bold">Name: {name}</h2>
-                        <h3 className="text-black text-xl font-semibold">Brand: {brand}</h3>
-                        <h3 className="text-black text-sm font-semibold">Price: ${price}</h3>
+                        <h3 className=" text-xl font-semibold">Brand: {brand}</h3>
+                        <h3 className=" text-sm font-semibold">Price: ${price}</h3>
                         <p>{description.length > 30 ? `${description.substring(0, 60)}...` : description}</p>
                         <div className="rating mb-6">
                             {renderStars()}

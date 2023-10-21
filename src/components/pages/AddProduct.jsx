@@ -27,7 +27,7 @@ const AddProduct = () => {
                 if (data.acknowledged) {
                     Swal.fire({
                         position: 'center',
-                        
+
                         icon: 'success',
                         title: 'New product added successfully',
                         showConfirmButton: false,

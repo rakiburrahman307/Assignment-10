@@ -16,7 +16,7 @@ const Details = () => {
 
 
     const handleAddToCart = () => {
-        fetch('http://localhost:5000/myCart', {
+        fetch('https://assignment-10-server-gamma-green.vercel.app/myCart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,16 +59,16 @@ const Details = () => {
         <div className="my-20">
             <h2 className="text-4xl font-bold text-center mb-6 mx-2 md:mx-10">Product <span className="text-green-400">Details</span></h2>
             <div className="card lg:card-side w-full px-8 bg-base-100 shadow-xl">
-                <figure><img src={imageUrl} alt={name} /></figure>
+                <figure><img className="w-96 mx-auto" src={imageUrl} alt={name} /></figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold">Name: {name}</h2>
                     <h3 className="text-black text-xl font-semibold">Brand: {brand}</h3>
                     <h3 className="text-black text-sm font-semibold">Price: ${price}</h3>
                     <p className="text-justify"><span className="font-bold">Description:</span> {description}</p>
-                    <div className="rating mb-6 m-auto">
+                    <div className="rating mb-6">
                         <p className="text-black">Rating: {renderStars()}</p>
                     </div>
-                    <div className="card-actions justify-center">
+                    <div className="card-actions justify-center md:justify-end">
                         <button onClick={handleAddToCart} className="btn btn-outline btn-neutral">Add To card <FaCartShopping className="text-2xl"></FaCartShopping></button>
                     </div>
                 </div>

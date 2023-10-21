@@ -51,7 +51,7 @@ const Registration = () => {
                         .then(() => {
                             Swal.fire({
                                 icon: 'success',
-                                
+
                                 text: 'Registration Success',
                             });
                             navigate("/");
@@ -61,7 +61,7 @@ const Registration = () => {
                             console.error("Update profile error:", updateProfileError);
                             Swal.fire({
                                 icon: 'error',
-                                
+
                                 text: 'Registration failed',
                             });
                         });
@@ -70,7 +70,7 @@ const Registration = () => {
                     console.error("Create user error:", createUserError);
                     Swal.fire({
                         icon: 'error',
-                        
+
                         text: 'Registration failed',
                     });
                 });
